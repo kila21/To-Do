@@ -1,0 +1,42 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    height: 82px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.item-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: 2px solid rgba(191, 86, 255, 0.79);
+    margin: 0 26px;
+    font-size: 32px;
+}
+
+.item-text {
+    width: 70%;
+    border-bottom: 4px solid rgba(72, 64, 64, 0.37);
+}
+
+.item-text p {
+    color: white;
+    font-size: 36px;
+    text-align: left;
+    letter-spacing: 0.1rem;
+   
+}
+
+.success-text  {
+    color: #0F90A1;
+}
+
+.success-check {
+    background: linear-gradient(111.35deg, #E600FA 10.12%, rgba(82, 97, 234, 0) 82.22%);
+}
