@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useForm, SubmitHandler, FieldValue} from 'react-hook-form';
-import './Auth.css'
+import { useForm, SubmitHandler} from 'react-hook-form';
+// import './Auth.css'
+import './auth.css'
 
 //import types
 import { AuthInputs } from '../../types/authInputs.type';

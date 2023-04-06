@@ -1,7 +1,7 @@
 
 
 import { useState } from 'react'
-import './ToDo.css'
+import './toDo.css'
 import TodoItem from './todo-item/todoItem'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { addTodo, clearTodos, removeTodo } from '../../store/todo/todo.slice'
