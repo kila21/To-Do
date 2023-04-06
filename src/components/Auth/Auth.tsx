@@ -4,18 +4,37 @@ import './Auth.css'
 
 //import types
 import { AuthInputs } from '../../types/authInputs.type';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { signIn } from '../../store/auth/auth.slice';
+import { useState } from 'react';
+import { userSignIn, userSignUp } from './authThunk';
 
 
 const Auth = () => {
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm()
+
+    // if click = false, user looking for sing in
+    // else click = true, user looking for sing up
+    const [click, setClick] = useState(false)
+
+    const dispatch = useAppDispatch()
+    const selector = useAppSelector(state=> state)
     // const onSubmitHandler = () => {
     //   console.log()
     // }
 
     // const onSubmit: SubmitHandler<AuthInputs> = data => console.log(data)
     const onSubmit: SubmitHandler<AuthInputs> = (data: AuthInputs) => {
-      console.log(data)
+      if(!click) {
+        dispatch(userSignIn(data)) 
+        navigate('/ToDo')
+      }
+
+      if(click) {
+        dispatch(userSignUp(data))
+        
+      }
     }
 
     return (
@@ -27,7 +46,7 @@ const Auth = () => {
             id="username" 
             type="text" 
             placeholder='Username'
-            {...register('username', {required: true})}
+            {...register('email', {required: true})}
             />
         </div>
 
@@ -40,8 +59,9 @@ const Auth = () => {
             {...register('password', {required: true})}
             />
         </div>
+        <div className='change'>Dont u Have Acc?<a onClick={() => setClick(!click)}>click here</a></div>
 
-        <input type='submit'/>
+        <button>{click ? 'Sign Up' : 'Sing In'}</button>
       </form>  
     )
 }
