@@ -19,12 +19,9 @@ const Auth = () => {
     const [click, setClick] = useState(false)
 
     const dispatch = useAppDispatch()
-    const selector = useAppSelector(state=> state)
-    // const onSubmitHandler = () => {
-    //   console.log()
-    // }
+    // const selector = useAppSelector(state=> state)
 
-    // const onSubmit: SubmitHandler<AuthInputs> = data => console.log(data)
+
     const onSubmit: SubmitHandler<AuthInputs> = (data: AuthInputs) => {
       if(!click) {
         dispatch(userSignIn(data))
