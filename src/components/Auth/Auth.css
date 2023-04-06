@@ -37,3 +37,12 @@ input {
 input:focus {
     outline: none;
 }
+
+button {
+    width: 70%;
+    height: 25%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: gray;
+}
