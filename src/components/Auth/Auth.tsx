@@ -12,7 +12,7 @@ import { userSignIn, userSignUp } from './authThunk';
 
 const Auth = () => {
     const navigate = useNavigate()
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit } = useForm<AuthInputs>()
 
     // if click = false, user looking for sing in
     // else click = true, user looking for sing up
@@ -29,7 +29,6 @@ const Auth = () => {
           navigate('/ToDo')
         })
         .catch(err => {
-          console.log(err)
           alert(err)
         })
         
@@ -49,11 +48,11 @@ const Auth = () => {
       //ar vicit ra unda ?????????????????????????????????????????????
       <form onSubmit={handleSubmit(onSubmit)}>
          <div className="username-container">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Username</label>
             <input 
-            id="username" 
-            type="text" 
-            placeholder='Username'
+            id="email" 
+            type="email" 
+            placeholder='email'
             {...register('email', {required: true})}
             />
         </div>
