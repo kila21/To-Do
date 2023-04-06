@@ -5,7 +5,7 @@ import './Auth.css'
 //import types
 import { AuthInputs } from '../../types/authInputs.type';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { signIn } from '../../store/auth/auth.slice';
+import { error, signIn } from '../../store/auth/auth.slice';
 import { useState } from 'react';
 import { userSignIn, userSignUp } from './authThunk';
 
@@ -27,12 +27,23 @@ const Auth = () => {
     // const onSubmit: SubmitHandler<AuthInputs> = data => console.log(data)
     const onSubmit: SubmitHandler<AuthInputs> = (data: AuthInputs) => {
       if(!click) {
-        dispatch(userSignIn(data)) 
-        navigate('/ToDo')
+        dispatch(userSignIn(data))
+        .then(res => {
+          navigate('/ToDo')
+        })
+        .catch(err => {
+          console.log(err)
+          alert(err)
+        })
+        
       }
 
       if(click) {
         dispatch(userSignUp(data))
+        .then()
+        .catch(err => {
+          alert(err)
+        }) 
         
       }
     }

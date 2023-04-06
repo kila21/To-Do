@@ -10,12 +10,11 @@ export const userSignUp  = (data: AuthInputs) => {
     return async (dispatch: any) => {
         await axios.post(url,changedData)
         .then(res => {
-            console.log(res)
             return dispatch(signUp())
         })
         .catch(err => {
-            alert(err.response.data.error.message)
-            return dispatch(error(err.response.data.error.message))
+            dispatch(error(err.response.data.error.message))
+            throw new Error(err.response.data.error.message)
         })
     }
 }
@@ -28,12 +27,11 @@ export const userSignIn = (data: AuthInputs) => {
     return async (dispatch: any) => {
         await axios.post(url,changedData)
         .then(res => {
-            console.log(res)
             return dispatch(signIn(res.data.idToken))
         })
         .catch(err => {
-            alert(err.response.data.error.message)
-            return dispatch(error(err.response.data.error.message))
+            dispatch(error(err.response.data.error.message));
+            throw new Error(err.response.data.error.message)
         })
     }
 }
