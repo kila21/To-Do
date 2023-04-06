@@ -1,17 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler} from 'react-hook-form';
-// import './Auth.css'
 import './auth.css'
 
 //import types
 import { AuthInputs } from '../../types/authInputs.type';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { error, signIn } from '../../store/auth/auth.slice';
+import { useAppDispatch } from '../../store/hooks';
 import { useState } from 'react';
 import { userSignIn, userSignUp } from './authThunk';
 
 
-const Auth = () => {
+const Auth = () : any => {
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm<AuthInputs>()
 

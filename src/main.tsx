@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import Auth from './components/auth/auth';
 import ToDo from './components/todo/toDo';
 
+
 import './index.css'
 import authReducer from './store/auth/auth.slice';
 import todoReducer from './store/todo/todo.slice'
