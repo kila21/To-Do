@@ -46,3 +46,16 @@ button {
     border: none;
     color: gray;
 }
+
+.change {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.change a {
+    color: blue;
+    outline: none;
+    cursor: pointer;
+}
