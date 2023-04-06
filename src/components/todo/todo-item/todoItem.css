@@ -18,22 +18,25 @@
     border: 2px solid rgba(191, 86, 255, 0.79);
     margin: 0 26px;
     font-size: 32px;
+    transform: rotate(90deg)
 }
 
 .item-text {
     width: 70%;
+    min-height: 50px;
     border-bottom: 4px solid rgba(72, 64, 64, 0.37);
 }
 
-.item-text p {
+.item-text p,
+.item-text del {
+    cursor: pointer;
     color: white;
     font-size: 36px;
     text-align: left;
     letter-spacing: 0.1rem;
-   
 }
 
-.success-text  {
+.item-text .success-text  {
     color: #0F90A1;
 }
 

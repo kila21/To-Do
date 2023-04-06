@@ -1,26 +1,48 @@
 
 
+import { useState } from 'react'
 import './ToDo.css'
 import TodoItem from './todo-item/todoItem'
-
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { addTodo, clearTodos, removeTodo } from '../../store/todo/todo.slice'
 
 
 
 const ToDo = () => {
-    const array = [1,2,3,4,5,7]
+    const selector = useAppSelector(state=> state.todo)
+    const dispatch = useAppDispatch();
+
+    const array = selector.todos
+
+    
+    const addTodoHandler = () => {
+        const input = document.getElementById('todo-input') as HTMLInputElement;
+        // array.push({text: input.value})
+        const todo = {text: input.value}
+        dispatch(addTodo(todo))
+        input.value = ''
+    }
+
+    const removeTodoHandler = (index: number) => {
+        dispatch(removeTodo(index))
+    }
 
     return (
         <>
-        <input type='text' className='todo-create' />
+        <div className='todo-create'>
+            <input id='todo-input' type='text' />
+            <button onClick={addTodoHandler}>Add ToDo</button>
+        </div>
 
         <div className='todo-container'>
-           {array.map((item, index) => {
-                return <TodoItem key={index}/>
+           {array && array.map((item, index) => {
+                return <TodoItem onClick={() => removeTodoHandler(index)} key={index} text={array[index].text}/>
            })}
         </div>
+
         <div className='todo-info'>
            <div>{array.length} items</div>
-           <div>Clear Items</div>
+           <div onClick={() => dispatch(clearTodos())}>Clear Items</div>
         </div>
         </>
     )
