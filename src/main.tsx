@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-import Auth from './components/auth/auth';
+import Auth from './components/Auth/auth';
 import ToDo from './components/todo/toDo';
 
 
