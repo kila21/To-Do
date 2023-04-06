@@ -7,10 +7,14 @@ import Auth from './components/auth/Auth';
 import ToDo from './components/todo/ToDo';
 
 import './index.css'
+import authReducer from './store/auth/auth.slice';
+import todoReducer from './store/todo/todo.slice'
+import { Provider } from 'react-redux';
 
 const store = configureStore({
   reducer: {
-    
+    auth: authReducer,
+    todo: todoReducer
   }
 })
 
@@ -26,7 +30,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>,
 )
 
