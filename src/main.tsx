@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+// import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import  { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
@@ -23,16 +24,22 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 
-const router = createBrowserRouter([
-  {path: '/', element: <Auth />},
-  {path: '/ToDo', element: <ToDo />}
-])
+// const router = createBrowserRouter([
+//   {path: '/', element: <Auth />},
+//   {path: '/ToDo', element: <ToDo />}
+// ])
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}></RouterProvider>
+    {/* <RouterProvider router={router}></RouterProvider> */}
+    <Router>
+      <Routes>
+        <Route path='/' element={<Auth />}/>
+        <Route path= '/ToDo' element={<ToDo />} />
+      </Routes>
+    </Router>
     </Provider>
   </React.StrictMode>,
 )
