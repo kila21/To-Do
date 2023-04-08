@@ -1,5 +1,6 @@
 {
   "name": "to-do",
+  "homepage": "https://to-do-phi-opal.vercel.app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
