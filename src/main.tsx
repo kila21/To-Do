@@ -34,7 +34,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
     {/* <RouterProvider router={router}></RouterProvider> */}
-    <Router basename='https://to-do-phi-opal.vercel.app/'>
+    <Router basename='https://to-do-phi-opal.vercel.app/index.html'>
       <Routes>
         <Route path='/' element={<Auth />}/>
         <Route path= '/ToDo' element={<ToDo />} />
