@@ -1,6 +1,17 @@
 {
-    "routes": [
-      { "src": "/.*", "dest": "/index.html" }
-    ]
+    "headers": [
+        {
+          "source": "/.*",
+          "headers": [
+            { "key": "content-type", "value": "text/javascript" }
+          ]
+        }
+      ],
+
+      "routes": [
+        { "src": "/.*", "dest": "/index.html" }
+      ]
 }
+
+   
   
