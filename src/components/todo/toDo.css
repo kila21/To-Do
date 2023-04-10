@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     background-color: #25273C;
     min-width: 600px;
     min-height: 400px;
@@ -64,4 +63,18 @@
 }
 .todo-info div {
     cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 620px) {
+    .todo-container,
+    .todo-info {
+        min-width: 60%;
+    }
+
+    .todo-create {
+        width: 60%;
+    }
+
 }
