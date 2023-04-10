@@ -1,22 +1,35 @@
 
 import { useState } from 'react';
+import { useAppDispatch } from '../../../store/hooks';
+
 import './todoItem.css'
+import { activeClasses } from '../../../store/todo/todo.slice';
 
 const TodoItem = (props: any) => {
-    const [click, setClicked] = useState(false)
+    const [click, setClick] = useState(props.isSelected)
 
-    const text = <del className='success-text' onClick={props.onClick}>{props.text}</del>
+    const dispatch = useAppDispatch()
+
+    const clickHandler = () => {
+        props.onClick(props.index)
+        console.log(props)
+    }
+
+    const text = props.isSelected ?
+     <del className='success-text' onClick={clickHandler}>{props.text}</del> 
+     : <p>{props.text}</p>
+
     return (
-        <div  className="todo-item">
+        <div className="todo-item">
             <span 
-            onClick={() => setClicked(!click)} 
-            className={click ? "item-success success-check" : 'item-success'}
+            onClick={() => dispatch(activeClasses(props.index))} 
+            className={props.isSelected ? "item-success success-check" : 'item-success'}
             >
-                {click ? String.fromCharCode(62) : ''}
+                {props.isSelected ? String.fromCharCode(62) : ''}
             </span>
             
-            <div onClick={props.onClick} className="item-text">
-                {click ? text : <p>{props.text}</p>}
+            <div onClick={clickHandler} className="item-text">
+                {text}
             </div>
         </div>
     )
