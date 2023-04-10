@@ -1,17 +1,17 @@
 {
     "headers": [
-        {
-          "source": "/.*",
-          "headers": [
-            { "key": "content-type", "value": "text/javascript" }
-          ]
-        }
-      ],
-
-      "routes": [
-        { "src": "/.*", "dest": "/index.html" }
-      ]
-}
-
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "https://to-do-phi-opal.vercel.app/" },
+      { "src": "/(.*)", "dest": "/index.html" }
+    ]
+  }
+  
    
   
