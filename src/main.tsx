@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import  { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import  { HashRouter as Router, Routes, Route} from 'react-router-dom'
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
